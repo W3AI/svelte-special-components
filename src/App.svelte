@@ -1,7 +1,11 @@
 <script>
   import Product from "./Product.svelte";
   import CartItem from "./CartItem.svelte";
-  import FamilyNode from './FamilyNode.svelte';
+  import FamilyNode from "./FamilyNode.svelte";
+
+  let y;
+
+  $: console.log(y);
 
   // Recursive Components
   let familyStructure = [
@@ -31,17 +35,27 @@
   }
 </script>
 
-<!-- Dynamic Component Markup example -->
-<h3>Dynamic Component Example - To use for complex If/Else statements</h3>
-<button on:click={toggle}>Toggle Display</button>
+<style>
+  div {
+    height: 1000px;
+  }
+</style>
 
-<svelte:component
-  this={renderedComponent.cmp}
-  title={renderedComponent.title}
-  id={renderedComponent.id} />
-<hr>
-<!-- Recursive Components Markup -->
-<h3>Recursive Component Example</h3>
-{#each familyStructure as familyMember}
+<svelte:window bind:scrollY={y} />
+
+<div>
+  <!-- Dynamic Component Markup example -->
+  <h3>Dynamic Component Example - To use for complex If/Else statements</h3>
+  <button on:click={toggle}>Toggle Display</button>
+
+  <svelte:component
+    this={renderedComponent.cmp}
+    title={renderedComponent.title}
+    id={renderedComponent.id} />
+  <hr />
+  <!-- Recursive Components Markup -->
+  <h3>Recursive Component Example</h3>
+  {#each familyStructure as familyMember}
     <FamilyNode member={familyMember} />
-{/each}
+  {/each}
+</div>
