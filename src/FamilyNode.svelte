@@ -1,5 +1,12 @@
+<script context="module">
+  // Put here code that needs to run just once per module / file
+  console.log("Runs once!");
+</script>
+
 <script>
   export let member;
+
+  console.log("Runs multiple times!");
 </script>
 
 <style>
