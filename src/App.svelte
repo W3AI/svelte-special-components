@@ -2,6 +2,9 @@
   import Product from "./Product.svelte";
   import CartItem from "./CartItem.svelte";
 
+
+
+  // Dynamic Components code example
   let renderedComponent = { cmp: Product, title: "Test Product", id: "p1" };
 
   function toggle() {
@@ -13,6 +16,11 @@
   }
 </script>
 
+
+
+<!-- Dynamic Component Markup example -->
+<hr>
+<h3>Dynamic Component Example - To use for complex If/Else statements</h3>
 <button on:click={toggle}>Toggle Display</button>
 
 <svelte:component
