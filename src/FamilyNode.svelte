@@ -1,12 +1,18 @@
 <script>
-    export let member;
+  export let member;
 </script>
 
-<h1>{member.name}</h1>
-{#if member.isParent}
-<ul>
+<style>
+  div {
+    margin-left: 2rem;
+  }
+</style>
+
+<div>
+  <h1>{member.name}</h1>
+  {#if member.isParent}
     {#each member.children as child}
-    <li>{child.name}</li>
+      <svelte:self member={child} />
     {/each}
-</ul>
-{/if}
+  {/if}
+</div>
