@@ -7,6 +7,8 @@
 
   $: console.log(y);
 
+  let currentTitle = 'My App';
+
   // Recursive Components
   let familyStructure = [
     {
@@ -33,6 +35,10 @@
       renderedComponent = { cmp: Product, title: "Test Product", id: "p1" };
     }
   }
+
+  function switchTitle() {
+      currentTitle = 'A New Title';
+  }
 </script>
 
 <style>
@@ -41,7 +47,18 @@
   }
 </style>
 
+<h3>Svelte: Accessing Window, Body and Head</h3>
+
 <svelte:window bind:scrollY={y} />
+<svelte:body on:mouseenter/>
+
+<svelte:head>
+    <title>{currentTitle}</title>
+</svelte:head>
+
+<button on:click={switchTitle} >Switch Title</button>
+
+<hr>
 
 <div>
   <!-- Dynamic Component Markup example -->
