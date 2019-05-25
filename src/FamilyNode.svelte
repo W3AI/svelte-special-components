@@ -3,6 +3,10 @@
 </script>
 
 <h1>{member.name}</h1>
+{#if member.isParent}
 <ul>
-    <li>Children...</li>
+    {#each member.children as child}
+    <li>{child.name}</li>
+    {/each}
 </ul>
+{/if}

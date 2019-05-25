@@ -16,7 +16,7 @@
         }
       ]
     },
-    { isParent: true, name: "Anna" }
+    { isParent: false, name: "Anna" }
   ];
 
   // Dynamic Components code example
@@ -41,7 +41,7 @@
   id={renderedComponent.id} />
 <hr>
 <!-- Recursive Components Markup -->
-
+<h3>Recursive Component Example</h3>
 {#each familyStructure as familyMember}
     <FamilyNode member={familyMember} />
 {/each}
